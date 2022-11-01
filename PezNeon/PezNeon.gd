@@ -32,12 +32,10 @@ func _process(delta):
 		velocity.x = SPEED
 		if $Sprite.flip_h == true:
 			$Sprite.flip_h = false
-		#$AudioStreamPlayer2D.play()
 		velocity.x = velocity.x + SPEED
 	elif Input.is_action_pressed("ui_left") and self.position.x > limits_II.x:
 		$Sprite.flip_h = true
 		velocity.x = -SPEED
-		#$AudioStreamPlayer2D.play()
 		velocity.x = velocity.x - SPEED
 	self.position += movement.normalized() * velocity * delta
 	velocity = Vector2(0,0)
