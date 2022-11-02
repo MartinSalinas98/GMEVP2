@@ -104,4 +104,5 @@ limit_right = 1600
 limit_bottom = 800
 
 [connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
+[connection signal="body_entered" from="Oyster" to="Oyster" method="_on_Oyster_body_entered"]
 [connection signal="body_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_body_entered"]
