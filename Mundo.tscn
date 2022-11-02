@@ -44,8 +44,8 @@ script = ExtResource( 5 )
 position = Vector2( 1271, 568 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 96, 681 )
+[node name="PezVerde" parent="." instance=ExtResource( 6 )]
+position = Vector2( 125, 254 )
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 margin_left = -94.0
