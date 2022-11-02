@@ -7,23 +7,6 @@
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 148.75, 138.75 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "gordo1"
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
-}
-
 [sub_resource type="Animation" id=2]
 resource_name = "gordo2"
 length = 0.8
@@ -58,8 +41,25 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
 }
 
+[sub_resource type="Animation" id=1]
+resource_name = "iddle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
 [sub_resource type="Animation" id=4]
-resource_name = "normal"
+resource_name = "swim"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -89,10 +89,16 @@ scale = Vector2( 0.611227, 0.611227 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 13
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/gordo1 = SubResource( 1 )
 anims/gordo2 = SubResource( 2 )
 anims/gordo3 = SubResource( 3 )
-anims/normal = SubResource( 4 )
+anims/iddle = SubResource( 1 )
+anims/swim = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
