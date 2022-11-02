@@ -41,15 +41,18 @@ func _process(delta):
 			time.start()
 			$AnimationPlayer.play("despierto")
 	
-	# Checking frame orientation and rotation
+	# Checking frame orientation
 	if movement.x < 0:
 		$Sprite.flip_h = true
-		$Sprite.rotation_degrees = 45 if movement.y < 0 else -45
-	else:
+	elif movement.x > 0:
 		$Sprite.flip_h = false
-		$Sprite.rotation_degrees = -45 if movement.y < 0 else 45
-	# Overwriting rotation if needed
-	if movement.y == 0:
+	
+	# Checking frame rotation
+	if movement.y < 0:
+		$Sprite.rotation_degrees = 45 if $Sprite.flip_h == true else -45
+	elif movement.y > 0:
+		$Sprite.rotation_degrees = -45 if $Sprite.flip_h == true else 45
+	else:
 		$Sprite.rotation_degrees = 0
 	
 	# Moving object
