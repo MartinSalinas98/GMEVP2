@@ -1,22 +1,29 @@
 extends Area2D
 
-var movement=Vector2()
+var movement=Vector2(0,0)
 var state = 0
 var movleft = false
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var randomg = 0
+var vel=Vector2(1,1)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+func _random(delta):
+	$AnimationPlayer.play("normal")
+	movement.x = floor(rand_range(100, 200))
+	if randomg < 0:
+		movement.x = -movement.x	
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
+		
+	self.position += vel.normalized() * movement * delta		
 
 
+func _on_Timer_timeout(delta):
+	randomg =  floor(rand_range(-2,2))
+	print(randomg)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
+func _process(delta):
+	_random(delta)	
 

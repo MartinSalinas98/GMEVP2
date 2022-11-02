@@ -1,24 +1,36 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/entorno/backgrounds/Fondo.jpeg" type="Texture" id=1]
 [ext_resource path="res://scenes/PezNeon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Ostra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/entorno/luz.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Luz.gd" type="Script" id=5]
-[ext_resource path="res://scenes/PezVerde.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/comida.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Mundo.gd" type="Script" id=7]
+[ext_resource path="res://scenes/PezGordo.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 139, 55.5 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 800.5, 19.75 )
+
 [node name="Mundo" type="Area2D"]
+script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1600.0
+margin_bottom = 800.0
 texture = ExtResource( 1 )
+expand = true
 
 [node name="Ostra" parent="." instance=ExtResource( 3 )]
 position = Vector2( 310, 162 )
+
+[node name="comida" parent="." instance=ExtResource( 6 )]
+position = Vector2( 19, -15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="PezNeon" parent="." instance=ExtResource( 2 )]
 position = Vector2( -279, -79 )
@@ -26,7 +38,8 @@ position = Vector2( -279, -79 )
 [node name="Camera2D" type="Camera2D" parent="PezNeon"]
 position = Vector2( 315, 264 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 2, 2 )
+limit_left = -1000000
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 748, 382 )
@@ -43,6 +56,20 @@ shape = SubResource( 1 )
 [node name="PezVerde" parent="." instance=ExtResource( 6 )]
 position = Vector2( 125, 254 )
 
-[connection signal="area_entered" from="Ostra" to="Ostra" method="_on_Ostra_area_entered"]
-[connection signal="area_entered" from="PezNeon" to="PezNeon" method="_on_PezNeon_area_entered"]
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+margin_left = -94.0
+margin_top = 76.0
+margin_right = 1504.0
+margin_bottom = 116.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 703.5, 97.25 )
+shape = SubResource( 2 )
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 615, 209 )
+scale = Vector2( 0.4, 0.4 )
+
+[connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
 [connection signal="area_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_area_entered"]
