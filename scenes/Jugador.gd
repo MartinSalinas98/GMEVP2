@@ -1,9 +1,9 @@
 extends Area2D
 var movement = Vector2(1,1)
-const SPEED = 100
+const SPEED = 1000
 
-var limits_DS = Vector2(1100,-180)
-var limits_II = Vector2(-260,500)
+var limits_DS = Vector2(1400,0)
+var limits_II = Vector2(0,700)
 
 var velocity = Vector2(0,0)
 
