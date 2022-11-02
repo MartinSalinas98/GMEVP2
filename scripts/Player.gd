@@ -16,7 +16,7 @@ onready var time = get_node("SleepTimer")
 
 # Function that initializes the object when it enters the scene
 func _ready():
-	$AnimationPlayer.play("awake")
+	$Animation.play("awake")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -36,12 +36,12 @@ func _process(delta):
 	
 	# Checking animation
 	if movement != Vector2.ZERO:
-		$AnimationPlayer.play("swim")
+		$Animation.play("swim")
 		time.stop()
 	else:
 		if time.is_stopped():
 			time.start()
-			$AnimationPlayer.play("awake")
+			$Animation.play("awake")
 	
 	# Checking frame orientation
 	if movement.x < 0:
@@ -61,9 +61,9 @@ func _process(delta):
 	var finalSpeed = SPEED
 	if Input.is_action_pressed("ui_select"):
 		finalSpeed = SPEED * SPEED_MULTIPLIER
-		$AnimationPlayer.playback_speed = SPEED_MULTIPLIER
+		$Animation.playback_speed = SPEED_MULTIPLIER
 	else:
-		$AnimationPlayer.playback_speed = 1
+		$Animation.playback_speed = 1
 	
 	# Moving object
 	# warning-ignore:return_value_discarded
@@ -71,4 +71,4 @@ func _process(delta):
 
 # Function to reproduce when the timer is over
 func _on_SleepTimer_timeout():
-	$AnimationPlayer.play("asleep")
+	$Animation.play("asleep")

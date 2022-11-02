@@ -7,25 +7,25 @@ var action = 0
 var in_action = true
 
 func _ready():
-	$Timer.start(1)
+	$MovementTimer.start(1)
 	in_action = false
 
 func _process(delta):
 	if not in_action:
 		if action == 0:
 			in_action = true
-			$AnimationPlayer.current_animation = "swim"
+			$Animation.current_animation = "swim"
 			movement.x = -1
 			$Sprite.flip_h = true
 		if action == 1:
 			in_action = true
-			$AnimationPlayer.current_animation = "swim"
+			$Animation.current_animation = "swim"
 			movement.x = 1
 			$Sprite.flip_h = false
 		if action == 2:
 			in_action = true
 			movement.x = 0
-			$AnimationPlayer.current_animation = "iddle"
+			$Animation.current_animation = "iddle"
 
 	if (self.position.x <= limitX.x) || (self.position.x >= limitX.y):
 		self.position.x = clamp(self.position.x, self.limitX.x, limitX.y)
@@ -37,5 +37,5 @@ func _process(delta):
 func _on_Timer_timeout():
 	action = floor(rand_range(0, 2.9))
 	in_action = false
-	$Timer.wait_time =  floor(rand_range(2, 5))
+	$MovementTimer.wait_time =  floor(rand_range(2, 5))
 

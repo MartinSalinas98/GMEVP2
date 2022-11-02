@@ -4,11 +4,12 @@ var on = false
 
 func _on_BotonLuz_body_entered(body):
 	self.enabled = !self.enabled
+	$LightSwitch/ClickSound.play()
 	
 	if on == false:
-		$LightSwitch/AnimationPlayer.play("on")
+		$LightSwitch/Animation.play("on")
 		on = true
 	else:
-		$LightSwitch/AnimationPlayer.play("off")
+		$LightSwitch/Animation.play("off")
 		on = false
 
