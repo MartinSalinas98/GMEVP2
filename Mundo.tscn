@@ -9,7 +9,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://scenes/PezGordo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/PezAmarillo.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/PezVerde.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/GreenFish.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 139, 55.5 )
@@ -30,21 +30,21 @@ b = Vector2( 1666, 43 )
 a = Vector2( 1595, -22 )
 b = Vector2( 1595, 832 )
 
-[node name="Mundo" type="Area2D"]
+[node name="World" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 margin_right = 1600.0
 margin_bottom = 800.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="comida" parent="." instance=ExtResource( 6 )]
+[node name="Food" parent="." instance=ExtResource( 6 )]
 position = Vector2( 19, -15 )
 collision_layer = 1
 collision_mask = 1
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light" type="Light2D" parent="."]
 position = Vector2( 828, 445 )
 enabled = false
 texture = ExtResource( 4 )
@@ -54,20 +54,17 @@ script = ExtResource( 5 )
 [node name="Oyster" parent="." instance=ExtResource( 3 )]
 position = Vector2( 851, 552 )
 
-[node name="BotonLuz" type="Area2D" parent="."]
+[node name="LightSwitch" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BotonLuz"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwitch"]
 position = Vector2( 1271, 568 )
 shape = SubResource( 1 )
 
-[node name="PezVerde" parent="." instance=ExtResource( 6 )]
-position = Vector2( 125, 254 )
-
-[node name="CollisionBot" type="StaticBody2D" parent="."]
+[node name="CollisionBottom" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2( 794.5, 777.25 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBot"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBottom"]
 shape = SubResource( 2 )
 
 [node name="CollisionLeft" type="StaticBody2D" parent="."]
@@ -90,15 +87,15 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRight"]
 shape = SubResource( 5 )
 
-[node name="Area2D" parent="." instance=ExtResource( 8 )]
+[node name="TropicalFish" parent="." instance=ExtResource( 8 )]
 position = Vector2( 615, 209 )
 scale = Vector2( 0.4, 0.4 )
 
-[node name="Jugador" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 78, 244 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Camera2D" type="Camera2D" parent="Jugador"]
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
 current = true
 limit_left = 0
 limit_top = 0
@@ -109,9 +106,9 @@ limit_bottom = 800
 position = Vector2( 531, 603 )
 scale = Vector2( 0.1, 0.1 )
 
-[node name="PezVerde2" parent="." instance=ExtResource( 10 )]
+[node name="GreenFish" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1161, 172 )
 
-[connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
+[connection signal="body_entered" from="Food" to="." method="_on_comida_body_entered"]
 [connection signal="body_entered" from="Oyster" to="Oyster" method="_on_Oyster_body_entered"]
-[connection signal="body_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_body_entered"]
+[connection signal="body_entered" from="LightSwitch" to="Light" method="_on_BotonLuz_body_entered"]
