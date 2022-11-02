@@ -17,5 +17,9 @@ func _ready():
 
 
 
-func _on_comida_area_entered(area):
-		$Sprite.hide()
+
+
+
+func _on_comida_body_entered(body):
+	var play = $comida.get_node("AnimationPlayer")
+	play.play("comida")

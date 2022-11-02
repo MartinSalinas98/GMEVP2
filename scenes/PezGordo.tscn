@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/PezGordo.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 257, 224 )
+extents = Vector2( 148.75, 138.75 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "gordo1"
@@ -75,18 +75,19 @@ tracks/0/keys = {
 }
 
 [node name="Area2D" type="Area2D"]
+position = Vector2( 35, -25 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 438.5, 299.5 )
+position = Vector2( 330.25, 214.25 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 429.5, 354.5 )
+position = Vector2( 327.836, 261 )
+scale = Vector2( 0.611227, 0.611227 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/gordo1 = SubResource( 1 )
@@ -95,5 +96,7 @@ anims/gordo3 = SubResource( 3 )
 anims/normal = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
