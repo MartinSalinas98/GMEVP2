@@ -13,13 +13,13 @@ func _random(delta):
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
-	print(randomg)
+	#print(randomg)
 	self.position += vel.normalized() * movement * delta		
 
 
 func _on_Timer_timeout(delta):
 	randomg =  floor(rand_range(-2,2))
-	print(randomg)
+	#print(randomg)
 
 
 

@@ -65,7 +65,7 @@ position = Vector2( 328, 231 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 3
-frame = 2
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/despierto = SubResource( 1 )
@@ -75,3 +75,6 @@ anims/nadar = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 342, 221 )
 shape = SubResource( 4 )
+
+[node name="SleepTimer" type="Timer" parent="."]
+wait_time = 5.0
