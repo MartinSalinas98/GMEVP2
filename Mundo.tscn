@@ -19,8 +19,8 @@ extents = Vector2( 800.5, 19.75 )
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1600.0
-margin_bottom = 800.0
+margin_right = 1695.0
+margin_bottom = 869.0
 texture = ExtResource( 1 )
 expand = true
 
@@ -68,6 +68,10 @@ scale = Vector2( 0.2, 0.2 )
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 800
 
 [connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
 [connection signal="area_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_area_entered"]
