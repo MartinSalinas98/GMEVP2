@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Pez_Neon_PNG.png" type="Texture" id=1]
-[ext_resource path="res://PezNeon.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/peces/Pez_neon.png" type="Texture" id=1]
+[ext_resource path="res://scripts/PezNeon.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 75.5, 33.5 )
