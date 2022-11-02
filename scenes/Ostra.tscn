@@ -9,7 +9,7 @@
 resource_name = "open"
 length = 1.7
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Ostra:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 6, 5, 4, 3, 2, 1, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:frame")
+tracks/1/path = NodePath("Bubbles:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -39,23 +39,23 @@ extents = Vector2( 59, 29 )
 [node name="Ostra" type="Area2D"]
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Ostra" type="Sprite" parent="."]
 position = Vector2( 487, 339 )
 scale = Vector2( 0.0729774, 0.0729773 )
 texture = ExtResource( 1 )
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 anims/open = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 488, 368 )
 shape = SubResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="OpeningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Bubbles" type="Sprite" parent="."]
 position = Vector2( 484, 283 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )

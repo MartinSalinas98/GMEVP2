@@ -5,7 +5,8 @@ const limits_DS = Vector2(1450,10)
 const limits_II = Vector2(10,650)
 
 # Object constants
-const SPEED = 1000
+export var SPEED = 500
+export var SPEED_MULTIPLIER = 2
 
 # Object initial variables
 var movement = Vector2(0,0)
@@ -15,9 +16,10 @@ onready var time = get_node("SleepTimer")
 
 # Function that initializes the object when it enters the scene
 func _ready():
-	$AnimationPlayer.play("despierto")
+	$AnimationPlayer.play("awake")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	# Initializing movement vector
 	movement = Vector2(0, 0)
@@ -34,27 +36,39 @@ func _process(delta):
 	
 	# Checking animation
 	if movement != Vector2.ZERO:
-		$AnimationPlayer.play("nadar")
+		$AnimationPlayer.play("swim")
 		time.stop()
 	else:
 		if time.is_stopped():
 			time.start()
-			$AnimationPlayer.play("despierto")
+			$AnimationPlayer.play("awake")
 	
-	# Checking frame orientation and rotation
+	# Checking frame orientation
 	if movement.x < 0:
 		$Sprite.flip_h = true
-		$Sprite.rotation_degrees = 45 if movement.y < 0 else -45
-	else:
+	elif movement.x > 0:
 		$Sprite.flip_h = false
-		$Sprite.rotation_degrees = -45 if movement.y < 0 else 45
-	# Overwriting rotation if needed
-	if movement.y == 0:
+	
+	# Checking frame rotation
+	if movement.y < 0:
+		$Sprite.rotation_degrees = 45 if $Sprite.flip_h == true else -45
+	elif movement.y > 0:
+		$Sprite.rotation_degrees = -45 if $Sprite.flip_h == true else 45
+	else:
 		$Sprite.rotation_degrees = 0
 	
+	# Checking if swim boost is active
+	var finalSpeed = SPEED
+	if Input.is_action_pressed("ui_select"):
+		finalSpeed = SPEED * SPEED_MULTIPLIER
+		$AnimationPlayer.playback_speed = SPEED_MULTIPLIER
+	else:
+		$AnimationPlayer.playback_speed = 1
+	
 	# Moving object
-	move_and_slide(movement.normalized() * SPEED)
+	# warning-ignore:return_value_discarded
+	move_and_slide(movement.normalized() * finalSpeed)
 
 # Function to reproduce when the timer is over
 func _on_SleepTimer_timeout():
-	$AnimationPlayer.play("durmiente")
+	$AnimationPlayer.play("asleep")
