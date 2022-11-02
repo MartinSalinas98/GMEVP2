@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/entorno/backgrounds/Fondo.jpeg" type="Texture" id=1]
 [ext_resource path="res://scenes/PezNeon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Ostra.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/entorno/luz.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Luz.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 139, 55.5 )
 
 [node name="Mundo" type="Area2D"]
 
@@ -22,5 +27,18 @@ position = Vector2( 315, 264 )
 current = true
 zoom = Vector2( 0.6, 0.6 )
 
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 748, 382 )
+enabled = false
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="BotonLuz" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BotonLuz"]
+position = Vector2( 1271, 568 )
+shape = SubResource( 1 )
+
 [connection signal="area_entered" from="Ostra" to="Ostra" method="_on_Ostra_area_entered"]
 [connection signal="area_entered" from="PezNeon" to="PezNeon" method="_on_PezNeon_area_entered"]
+[connection signal="area_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_area_entered"]
