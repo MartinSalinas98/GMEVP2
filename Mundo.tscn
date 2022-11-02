@@ -30,7 +30,7 @@ b = Vector2( 1666, 43 )
 a = Vector2( 1595, -22 )
 b = Vector2( 1595, 832 )
 
-[node name="Mundo" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="Background" type="TextureRect" parent="."]
