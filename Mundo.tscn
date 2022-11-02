@@ -61,32 +61,29 @@ shape = SubResource( 1 )
 [node name="PezVerde" parent="." instance=ExtResource( 6 )]
 position = Vector2( 125, 254 )
 
-[node name="StaticBody2D@ColorRect" type="ColorRect" parent="."]
-margin_left = -3.0
-margin_top = 756.0
-margin_right = 1595.0
-margin_bottom = 796.0
-color = Color( 0, 0, 0, 0 )
-
 [node name="CollisionBot" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2( 794.5, 777.25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBot"]
 shape = SubResource( 2 )
 
 [node name="CollisionLeft" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionLeft"]
 position = Vector2( 9, 407 )
 shape = SubResource( 6 )
 
 [node name="CollisionTop" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTop"]
 position = Vector2( -7, -25 )
 shape = SubResource( 4 )
 
 [node name="CollisionRight" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRight"]
 shape = SubResource( 5 )
@@ -106,5 +103,6 @@ limit_top = 0
 limit_right = 1600
 limit_bottom = 800
 
+[connection signal="body_entered" from="Ostra" to="Ostra" method="_on_Ostra_body_entered"]
 [connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
-[connection signal="area_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_area_entered"]
+[connection signal="body_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_body_entered"]
