@@ -13,19 +13,20 @@
 extents = Vector2( 139, 55.5 )
 
 [sub_resource type="SegmentShape2D" id=2]
-a = Vector2( 805.5, 22.75 )
-b = Vector2( -794.5, 22.75 )
+a = Vector2( 859.5, -13.25 )
+b = Vector2( -839.5, -15.25 )
 
 [sub_resource type="SegmentShape2D" id=6]
-a = Vector2( -3, -418 )
-b = Vector2( -1, 400 )
+a = Vector2( 0, -420 )
+b = Vector2( 0, 426 )
 
 [sub_resource type="SegmentShape2D" id=4]
-b = Vector2( 0, 800 )
+a = Vector2( -44, 43 )
+b = Vector2( 1666, 43 )
 
 [sub_resource type="SegmentShape2D" id=5]
-a = Vector2( 1600, 0 )
-b = Vector2( 1600, 800 )
+a = Vector2( 1595, -22 )
+b = Vector2( 1595, 832 )
 
 [node name="Mundo" type="Area2D"]
 script = ExtResource( 7 )
@@ -45,7 +46,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 751, 370 )
+position = Vector2( 819, 376 )
 enabled = false
 texture = ExtResource( 4 )
 color = Color( 1, 1, 1, 0.219608 )
@@ -57,26 +58,37 @@ script = ExtResource( 5 )
 position = Vector2( 1271, 568 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="PezVerde" parent="." instance=ExtResource( 6 )]
+position = Vector2( 125, 254 )
+
+[node name="StaticBody2D@ColorRect" type="ColorRect" parent="."]
+margin_left = -3.0
+margin_top = 756.0
+margin_right = 1595.0
+margin_bottom = 796.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="CollisionBot" type="StaticBody2D" parent="."]
 position = Vector2( 794.5, 777.25 )
 
-[node name="StaticBody2DCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBot"]
 shape = SubResource( 2 )
+
+[node name="CollisionLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionLeft"]
+position = Vector2( 9, 407 )
+shape = SubResource( 6 )
 
 [node name="CollisionTop" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTop"]
-position = Vector2( 9, 407 )
-shape = SubResource( 6 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionIzq" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( -7, -25 )
 shape = SubResource( 4 )
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="CollisionRight" type="StaticBody2D" parent="."]
 
-[node name="CollisionDer" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRight"]
 shape = SubResource( 5 )
 
 [node name="Area2D" parent="." instance=ExtResource( 8 )]
