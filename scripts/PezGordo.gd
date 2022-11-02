@@ -1,9 +1,7 @@
 extends Area2D
 
-var movement=Vector2(0,0)
-var state = 0
-var movleft = false
-var randomg = 0
+var movement=Vector2()
+var randomg = -1
 var vel=Vector2(1,1)
 
 
@@ -15,13 +13,15 @@ func _random(delta):
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
-		
+	print(randomg)
 	self.position += vel.normalized() * movement * delta		
 
 
 func _on_Timer_timeout(delta):
 	randomg =  floor(rand_range(-2,2))
 	print(randomg)
+
+
 
 
 func _process(delta):

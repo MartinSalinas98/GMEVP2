@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/entorno/backgrounds/Fondo.jpeg" type="Texture" id=1]
-[ext_resource path="res://scenes/PezNeon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Jugador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Ostra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/entorno/luz.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Luz.gd" type="Script" id=5]
@@ -32,15 +32,6 @@ position = Vector2( 19, -15 )
 collision_layer = 1
 collision_mask = 1
 
-[node name="PezNeon" parent="." instance=ExtResource( 2 )]
-position = Vector2( -279, -79 )
-
-[node name="Camera2D" type="Camera2D" parent="PezNeon"]
-position = Vector2( 315, 264 )
-current = true
-zoom = Vector2( 2, 2 )
-limit_left = -1000000
-
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 748, 382 )
 enabled = false
@@ -70,6 +61,13 @@ shape = SubResource( 2 )
 [node name="Area2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 615, 209 )
 scale = Vector2( 0.4, 0.4 )
+
+[node name="Jugador" parent="." instance=ExtResource( 2 )]
+position = Vector2( 78, 244 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+current = true
 
 [connection signal="body_entered" from="comida" to="." method="_on_comida_body_entered"]
 [connection signal="area_entered" from="BotonLuz" to="Light2D" method="_on_BotonLuz_area_entered"]

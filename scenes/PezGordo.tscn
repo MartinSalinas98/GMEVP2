@@ -94,9 +94,3 @@ anims/gordo1 = SubResource( 1 )
 anims/gordo2 = SubResource( 2 )
 anims/gordo3 = SubResource( 3 )
 anims/normal = SubResource( 4 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
