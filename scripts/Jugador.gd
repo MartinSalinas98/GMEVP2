@@ -10,7 +10,12 @@ const SPEED = 1000
 # Object initial variables
 var movement = Vector2(0,0)
 
-onready var time = get_node("Timer")
+# Sleep timer node
+onready var time = get_node("SleepTimer")
+
+# Function that initializes the object when it enters the scene
+func _ready():
+	$AnimationPlayer.play("despierto")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,16 +25,8 @@ func _process(delta):
 	# Calculating movement based on key presses
 	if Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W):
 		movement.y += -1
-		#if $Sprite.flip_h == true:
-		#	$Sprite.rotation_degrees = 45
-		#else:
-		#	$Sprite.rotation_degrees = -45
 	if Input.is_action_pressed("ui_down") or Input.is_key_pressed(KEY_S):
 		movement.y += 1
-		#if $Sprite.flip_h == true:
-		#	$Sprite.rotation_degrees = -45
-		#else:
-		#	$Sprite.rotation_degrees = 45
 	if Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D):
 		movement.x += 1
 	if Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A):
@@ -38,8 +35,11 @@ func _process(delta):
 	# Checking animation
 	if movement != Vector2.ZERO:
 		$AnimationPlayer.play("nadar")
+		time.stop()
 	else:
-		$AnimationPlayer.play("despierto")
+		if time.is_stopped():
+			time.start()
+			$AnimationPlayer.play("despierto")
 	
 	# Checking frame orientation and rotation
 	if movement.x < 0:
@@ -54,3 +54,7 @@ func _process(delta):
 	
 	# Moving object
 	move_and_slide(movement.normalized() * SPEED)
+
+# Function to reproduce when the timer is over
+func _on_SleepTimer_timeout():
+	$AnimationPlayer.play("durmiente")
