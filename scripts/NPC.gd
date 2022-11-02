@@ -24,6 +24,7 @@ func _process(delta):
 			$Sprite.flip_h = false
 		if action == 2:
 			in_action = true
+			movement.x = 0
 			$AnimationPlayer.current_animation = "iddle"
 
 	if (self.position.x <= limitX.x) || (self.position.x >= limitX.y):
