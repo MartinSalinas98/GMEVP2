@@ -8,7 +8,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "open"
 length = 1.7
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -45,7 +44,6 @@ position = Vector2( 487, 339 )
 scale = Vector2( 0.0729774, 0.0729773 )
 texture = ExtResource( 1 )
 hframes = 8
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open = SubResource( 1 )
@@ -62,6 +60,6 @@ position = Vector2( 484, 283 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 hframes = 6
-frame = 2
+frame = 5
 
 [connection signal="area_entered" from="." to="." method="_on_Ostra_area_entered"]
