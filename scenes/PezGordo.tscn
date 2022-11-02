@@ -78,11 +78,11 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2279, 666 )
+position = Vector2( 438.5, 299.5 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2294, 692 )
+position = Vector2( 429.5, 354.5 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
@@ -93,3 +93,7 @@ anims/gordo1 = SubResource( 1 )
 anims/gordo2 = SubResource( 2 )
 anims/gordo3 = SubResource( 3 )
 anims/normal = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

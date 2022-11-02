@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
@@ -17,7 +17,5 @@ func _ready():
 
 
 
-
-func _on_Area2D_area_entered(area):
-	if area.name == "comida":
+func _on_comida_area_entered(area):
 		$Sprite.hide()
