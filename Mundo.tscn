@@ -87,7 +87,7 @@ script = ExtResource( 5 )
 [node name="LightSwitch" type="Area2D" parent="Light"]
 position = Vector2( -828, -445 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light/LightSwitch"]
+[node name="Hitbox" type="CollisionShape2D" parent="Light/LightSwitch"]
 position = Vector2( 1340.88, 699.007 )
 rotation = 0.656244
 shape = SubResource( 1 )
@@ -100,7 +100,7 @@ texture = ExtResource( 11 )
 hframes = 2
 frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Light/LightSwitch"]
+[node name="Animation" type="AnimationPlayer" parent="Light/LightSwitch"]
 anims/off = SubResource( 7 )
 anims/on = SubResource( 8 )
 
@@ -111,27 +111,27 @@ position = Vector2( 851, 552 )
 visible = false
 position = Vector2( 794.5, 777.25 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBottom"]
+[node name="Hitbox" type="CollisionShape2D" parent="CollisionBottom"]
 shape = SubResource( 2 )
 
 [node name="CollisionLeft" type="StaticBody2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionLeft"]
+[node name="Hitbox" type="CollisionShape2D" parent="CollisionLeft"]
 position = Vector2( 9, 407 )
 shape = SubResource( 6 )
 
 [node name="CollisionTop" type="StaticBody2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTop"]
+[node name="Hitbox" type="CollisionShape2D" parent="CollisionTop"]
 position = Vector2( -7, -25 )
 shape = SubResource( 4 )
 
 [node name="CollisionRight" type="StaticBody2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRight"]
+[node name="Hitbox" type="CollisionShape2D" parent="CollisionRight"]
 shape = SubResource( 5 )
 
 [node name="TropicalFish" parent="." instance=ExtResource( 8 )]

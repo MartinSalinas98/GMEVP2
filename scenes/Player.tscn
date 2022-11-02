@@ -65,13 +65,14 @@ position = Vector2( 328, 231 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 3
+frame = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 anims/asleep = SubResource( 2 )
 anims/awake = SubResource( 1 )
 anims/swim = SubResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 342, 221 )
 shape = SubResource( 4 )
 

@@ -41,19 +41,19 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11 ]
 }
 
-[node name="Area2D" type="Area2D"]
+[node name="YellowFish" type="Area2D"]
 position = Vector2( 376, 292 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 anims/iddle = SubResource( 3 )
 anims/swim = SubResource( 2 )
 
@@ -62,7 +62,7 @@ texture = ExtResource( 1 )
 hframes = 7
 vframes = 2
 
-[node name="Timer" type="Timer" parent="."]
+[node name="MovementTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="MovementTimer" to="." method="_on_Timer_timeout"]

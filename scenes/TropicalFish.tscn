@@ -74,11 +74,11 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[node name="Area2D" type="Area2D"]
+[node name="TropicalFish" type="Area2D"]
 position = Vector2( 35, -25 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 330.25, 214.25 )
 shape = SubResource( 5 )
 
@@ -88,16 +88,16 @@ scale = Vector2( 0.611227, 0.611227 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 8
+frame = 16
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 anims/gordo2 = SubResource( 2 )
 anims/gordo3 = SubResource( 3 )
 anims/iddle = SubResource( 1 )
 anims/swim = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="MovementTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="MovementTimer" to="." method="_on_Timer_timeout"]

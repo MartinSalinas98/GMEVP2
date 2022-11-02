@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="comida" type="RigidBody2D"]
+[node name="Food" type="RigidBody2D"]
 collision_layer = 15
 collision_mask = 15
 script = ExtResource( 2 )
@@ -31,11 +31,11 @@ position = Vector2( 161, 117 )
 texture = ExtResource( 1 )
 hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 160, 117 )
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 anims/comida = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_comida_body_entered"]
