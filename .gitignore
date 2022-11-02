@@ -10,3 +10,6 @@ data_*/
 
 # Default files
 icon.png
+default_env.tres
+icon.png.import
+project.godot
