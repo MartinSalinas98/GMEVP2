@@ -41,7 +41,7 @@ position = Vector2( 1271, 568 )
 shape = SubResource( 1 )
 
 [node name="PezVerde" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1352, 641 )
+position = Vector2( 125, 254 )
 
 [connection signal="area_entered" from="Ostra" to="Ostra" method="_on_Ostra_area_entered"]
 [connection signal="area_entered" from="PezNeon" to="PezNeon" method="_on_PezNeon_area_entered"]
