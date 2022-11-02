@@ -1,5 +1,8 @@
 extends Area2D
 
+var movement=Vector2()
+var state = 0
+var movleft = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,7 +11,8 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,9 +20,3 @@ func _ready():
 #	pass
 
 
-func _on_Ostra_area_entered(area):
-	$AudioStreamPlayer.play()
-	$AnimationPlayer.play("open")
-	
-	
-	
