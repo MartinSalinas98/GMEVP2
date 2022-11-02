@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/sprites/fishes/Pez2_Neon_Estados.svg" type="Texture" id=1]
-[ext_resource path="res://scripts/Jugador.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/fishes/Neon_fish.svg" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=2]
 resource_name = "asleep"

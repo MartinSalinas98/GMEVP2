@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/sprites/entorno/comida.svg" type="Texture" id=1]
-[ext_resource path="res://scripts/comida.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/enviroment/comida.svg" type="Texture" id=1]
+[ext_resource path="res://scripts/Food.gd" type="Script" id=2]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
