@@ -57,16 +57,6 @@ script = ExtResource( 5 )
 position = Vector2( 1271, 568 )
 shape = SubResource( 1 )
 
-[node name="PezVerde" parent="." instance=ExtResource( 6 )]
-position = Vector2( 125, 254 )
-
-[node name="StaticBody2D@ColorRect" type="ColorRect" parent="."]
-margin_left = -3.0
-margin_top = 756.0
-margin_right = 1595.0
-margin_bottom = 796.0
-color = Color( 0, 0, 0, 0 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 794.5, 777.25 )
 

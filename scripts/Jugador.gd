@@ -49,5 +49,6 @@ func _process(delta):
 
 	if not is_on_wall():
 		move_and_slide(movement.normalized() * velocity)
-	#self.position += movement.normalized() * velocity * delta
+	else:
+		move_and_slide(movement.normalized() * -velocity)
 	velocity = Vector2(0,0)
