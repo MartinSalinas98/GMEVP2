@@ -36,6 +36,7 @@ collision_mask = 1
 position = Vector2( 748, 382 )
 enabled = false
 texture = ExtResource( 4 )
+color = Color( 1, 1, 1, 0.219608 )
 script = ExtResource( 5 )
 
 [node name="BotonLuz" type="Area2D" parent="."]
