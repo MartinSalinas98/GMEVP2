@@ -19,8 +19,8 @@ extents = Vector2( 800.5, 19.75 )
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1695.0
-margin_bottom = 869.0
+margin_right = 1600.0
+margin_bottom = 800.0
 texture = ExtResource( 1 )
 expand = true
 
