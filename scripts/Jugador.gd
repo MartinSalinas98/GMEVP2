@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 var movement = Vector2(1,1)
 const SPEED = 1000
 
@@ -12,9 +12,9 @@ onready var time = get_node("Timer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$AnimationPlayer.play("despierto")	
+	$AnimationPlayer.play("despierto")
 	
-	if Input.is_action_pressed("ui_up") and self.position.y > limits_DS.y:
+	if Input.is_action_pressed("ui_up"):
 		
 		$AnimationPlayer.play("nadar")
 		
@@ -23,7 +23,7 @@ func _process(delta):
 		else:
 			$Sprite.rotation_degrees = -45
 		velocity.y = -SPEED
-	elif Input.is_action_pressed("ui_down") and self.position.y < limits_II.y:
+	elif Input.is_action_pressed("ui_down"):
 		$AnimationPlayer.play("nadar")
 		
 		if $Sprite.flip_h == true:
@@ -33,28 +33,21 @@ func _process(delta):
 		velocity.y = SPEED
 	else:
 		$Sprite.rotation_degrees = 0
-	if Input.is_action_pressed("ui_right") and self.position.x < limits_DS.x:
+	if Input.is_action_pressed("ui_right"):
 		$AnimationPlayer.play("nadar")
 		
 		velocity.x = SPEED
 		if $Sprite.flip_h == true:
 			$Sprite.flip_h = false
 		velocity.x = velocity.x + SPEED
-	elif Input.is_action_pressed("ui_left") and self.position.x > limits_II.x:
+	elif Input.is_action_pressed("ui_left"):
 		$AnimationPlayer.play("nadar")
 		
 		$Sprite.flip_h = true
 		velocity.x = -SPEED
 		velocity.x = velocity.x - SPEED
-		
-		
-		
-	self.position += movement.normalized() * velocity * delta
+
+	if not is_on_wall():
+		move_and_slide(movement.normalized() * velocity)
+	#self.position += movement.normalized() * velocity * delta
 	velocity = Vector2(0,0)
-	
-	
-	
-	
-
-
-	

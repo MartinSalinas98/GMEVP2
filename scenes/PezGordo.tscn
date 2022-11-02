@@ -88,7 +88,7 @@ scale = Vector2( 0.611227, 0.611227 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 8
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/gordo1 = SubResource( 1 )
