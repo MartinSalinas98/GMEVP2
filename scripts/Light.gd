@@ -6,7 +6,10 @@ func _on_BotonLuz_body_entered(body):
 	self.enabled = !self.enabled
 	if on == false:
 		$LightSwitch/Animation.play("on")
-		on=true
+		$AnimationPlayerLight.play("on")
+		on = true
 	else:
 		$LightSwitch/Animation.play("off")
-		on=false
+		$AnimationPlayerLight.play("off")
+		on = false
+

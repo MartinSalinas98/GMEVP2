@@ -37,4 +37,3 @@ func _on_Timer_timeout():
 	action = floor(rand_range(0, 2.9))
 	in_action = false
 	$MovementTimer.wait_time =  floor(rand_range(2, 5))
-
