@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/sprites/enviroment/backgrounds/Background.jpeg" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -43,14 +43,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-
-[sub_resource type="GDScript" id=9]
-script/source = "extends Node2D
-
-func _on_comida_body_entered(body):
-	var play = $comida.get_node(\"AnimationPlayer\")
-	play.play(\"comida\")
-"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.7496, 51.6123 )
