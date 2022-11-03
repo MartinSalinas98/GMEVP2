@@ -123,7 +123,7 @@ texture = ExtResource( 11 )
 vframes = 2
 frame = 1
 
-[node name="AnimationPlayerLight" type="AnimationPlayer" parent="Light"]
+[node name="LightBulbAnimation" type="AnimationPlayer" parent="Light"]
 anims/off = SubResource( 9 )
 anims/on = SubResource( 10 )
 
@@ -143,7 +143,7 @@ texture = ExtResource( 7 )
 hframes = 2
 frame = 1
 
-[node name="Animation" type="AnimationPlayer" parent="Light/LightSwitch"]
+[node name="LightSwitchAnimation" type="AnimationPlayer" parent="Light/LightSwitch"]
 anims/off = SubResource( 7 )
 anims/on = SubResource( 8 )
 
