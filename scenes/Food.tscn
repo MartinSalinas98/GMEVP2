@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/enviroment/Food.svg" type="Texture" id=1]
+[ext_resource path="res://scripts/Food.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.0
+radius = 9.0
 
 [sub_resource type="Animation" id=2]
-resource_name = "comida"
+resource_name = "food"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -23,15 +24,17 @@ tracks/0/keys = {
 [node name="Food" type="RigidBody2D"]
 collision_layer = 15
 collision_mask = 15
+can_sleep = false
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 161, 117 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 160, 117 )
 shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/comida = SubResource( 2 )
+anims/food = SubResource( 2 )
+
+[connection signal="input_event" from="." to="." method="_on_Food_input_event"]

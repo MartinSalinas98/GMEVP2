@@ -1,6 +1,10 @@
 extends "res://scripts/NPC.gd"
 
-var gordo = 0 
+var fatState = 0
+
+func _ready():
+	._ready() # Super._ready()
+	$Animation.play("fatState0")
 
 func _process(delta):
 	if not in_action:
@@ -22,21 +26,18 @@ func _process(delta):
 		$Sprite.flip_h = !$Sprite.flip_h
 	self.position += vel * movement.normalized() * delta
 
-
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-func _on_Food_input_event(viewport, event, shape_idx):
-	print("Como")
-	if gordo == 0:
-		gordo = 1
-		$Animation.current_animation = "gordo1"
-	elif gordo == 1:
-		gordo = 2
-		$Animation.current_animation = "gordo2"
-	elif gordo == 2:
-		gordo = 3
-		$Animation.current_animation = "gordo3"
-	elif gordo == 3:
-		gordo = 4
-		$Animation.current_animation = "gordo4"
+# Function that will run when food collides with this fish
+func _on_TropicalFish_body_entered(body):
+	# Increasing body size each time the fish touches food
+	if body.name == "Food" or body.name == "Food2":
+		if fatState == 0:
+			fatState = 1
+			$Animation.current_animation = "fatState1"
+		elif fatState == 1:
+			fatState = 2
+			$Animation.current_animation = "fatState2"
+		elif fatState == 2:
+			fatState = 3
+			$Animation.current_animation = "fatState3"
+		else:
+			pass

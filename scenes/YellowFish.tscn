@@ -8,7 +8,7 @@ radius = 251.0
 height = 792.0
 
 [sub_resource type="Animation" id=3]
-resource_name = "iddle"
+resource_name = "idle"
 length = 1.1
 loop = true
 tracks/0/type = "value"
@@ -54,7 +54,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/iddle = SubResource( 3 )
+anims/idle = SubResource( 3 )
 anims/swim = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

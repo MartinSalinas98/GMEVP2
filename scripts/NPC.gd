@@ -24,7 +24,7 @@ func _process(delta):
 		if action == 2:
 			in_action = true
 			movement.x = 0
-			$Animation.current_animation = "iddle"
+			$Animation.current_animation = "idle"
 
 	if (self.position.x <= limitX.x) || (self.position.x >= limitX.y):
 		self.position.x = clamp(self.position.x, self.limitX.x, limitX.y)

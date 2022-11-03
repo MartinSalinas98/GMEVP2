@@ -7,7 +7,7 @@
 extents = Vector2( 80.25, 33.5 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "iddle"
+resource_name = "idle"
 length = 1.6
 loop = true
 tracks/0/type = "value"
@@ -59,7 +59,7 @@ vframes = 2
 frame = 5
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/iddle = SubResource( 3 )
+anims/idle = SubResource( 3 )
 anims/swim = SubResource( 1 )
 
 [node name="MovementTimer" type="Timer" parent="."]

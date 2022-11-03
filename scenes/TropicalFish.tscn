@@ -7,7 +7,7 @@
 extents = Vector2( 148.75, 138.75 )
 
 [sub_resource type="Animation" id=4]
-resource_name = "gordo0"
+resource_name = "fatState0"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -24,7 +24,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=1]
-resource_name = "gordo1"
+resource_name = "fatState1"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -41,7 +41,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "gordo2"
+resource_name = "fatState2"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "gordo3"
+resource_name = "fatState3"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -75,26 +75,26 @@ tracks/0/keys = {
 }
 
 [node name="TropicalFish" type="Area2D"]
-position = Vector2( 35, -25 )
 script = ExtResource( 2 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 330.25, 214.25 )
 shape = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 327.836, 261 )
 scale = Vector2( 0.611227, 0.611227 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 7
+frame = 24
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/gordo0 = SubResource( 4 )
-anims/gordo1 = SubResource( 1 )
-anims/gordo2 = SubResource( 2 )
-anims/gordo3 = SubResource( 3 )
+anims/fatState0 = SubResource( 4 )
+anims/fatState1 = SubResource( 1 )
+anims/fatState2 = SubResource( 2 )
+anims/fatState3 = SubResource( 3 )
 
 [node name="MovementTimer" type="Timer" parent="."]
 wait_time = 5.0
