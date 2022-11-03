@@ -54,6 +54,8 @@ shape = SubResource( 2 )
 
 [node name="OpeningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+volume_db = 0.291
+attenuation = 5.09824
 
 [node name="Bubbles" type="Sprite" parent="."]
 position = Vector2( 0, -83 )
