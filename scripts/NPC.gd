@@ -2,7 +2,7 @@ extends Area2D
 
 var movement = Vector2(0, 0)
 var limitX = Vector2(100, 1400)
-var vel = 500
+var vel = 100
 var action = 0
 var in_action = false
 
