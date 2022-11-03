@@ -23,6 +23,9 @@ func _process(delta):
 	self.position += vel * movement.normalized() * delta
 
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_Food_input_event(viewport, event, shape_idx):
 	print("Como")
 	if gordo == 0:
