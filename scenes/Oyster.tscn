@@ -64,4 +64,4 @@ texture = ExtResource( 4 )
 hframes = 6
 frame = 5
 
-[connection signal="area_entered" from="." to="." method="_on_Oyster_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Oyster_body_entered"]
