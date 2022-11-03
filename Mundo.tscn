@@ -13,20 +13,13 @@
 [ext_resource path="res://assets/audio/Light Switch.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/sprites/entorno/light.png" type="Texture" id=13]
 
-[sub_resource type="Animation" id=9]
-resource_name = "off"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Light:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+func _on_comida_body_entered(body):
+	var play = $comida.get_node(\"AnimationPlayer\")
+	play.play(\"comida\")
+"
 
 [sub_resource type="Animation" id=10]
 resource_name = "on"
@@ -127,7 +120,6 @@ vframes = 2
 frame = 1
 
 [node name="AnimationPlayerLight" type="AnimationPlayer" parent="Light"]
-anims/off = SubResource( 9 )
 anims/on = SubResource( 10 )
 
 [node name="LightSwitch" type="Area2D" parent="Light"]
@@ -206,5 +198,5 @@ scale = Vector2( 0.1, 0.1 )
 position = Vector2( 1161, 172 )
 
 [connection signal="input_event" from="Food" to="TropicalFish" method="_on_Food_input_event"]
+[connection signal="input_event" from="Food2" to="TropicalFish" method="_on_Food_input_event"]
 [connection signal="body_entered" from="Light/LightSwitch" to="Light" method="_on_BotonLuz_body_entered"]
-[connection signal="body_entered" from="Oyster" to="Oyster" method="_on_Oyster_body_entered"]
