@@ -6,12 +6,19 @@
 [ext_resource path="res://assets/sprites/enviroment/Light.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Light.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Food.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/Main.gd" type="Script" id=7]
 [ext_resource path="res://scenes/TropicalFish.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/YellowFish.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/GreenFish.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/entorno/interructor.png" type="Texture" id=11]
 [ext_resource path="res://assets/audio/Light Switch.mp3" type="AudioStream" id=12]
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+func _on_comida_body_entered(body):
+	var play = $comida.get_node(\"AnimationPlayer\")
+	play.play(\"comida\")
+"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.7496, 51.6123 )
@@ -65,7 +72,7 @@ a = Vector2( 1595, -22 )
 b = Vector2( 1595, 832 )
 
 [node name="World" type="Node2D"]
-script = ExtResource( 7 )
+script = SubResource( 9 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 1600.0
@@ -77,6 +84,9 @@ expand = true
 position = Vector2( 19, -15 )
 collision_layer = 1
 collision_mask = 1
+
+[node name="Food2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 24, 146 )
 
 [node name="Light" type="Light2D" parent="."]
 position = Vector2( 828, 445 )
@@ -160,6 +170,6 @@ scale = Vector2( 0.1, 0.1 )
 [node name="GreenFish" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1161, 172 )
 
-[connection signal="body_entered" from="Food" to="." method="_on_comida_body_entered"]
+[connection signal="input_event" from="Food" to="TropicalFish" method="_on_Food_input_event"]
 [connection signal="body_entered" from="Light/LightSwitch" to="Light" method="_on_BotonLuz_body_entered"]
 [connection signal="body_entered" from="Oyster" to="Oyster" method="_on_Oyster_body_entered"]
